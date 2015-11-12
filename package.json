@@ -1,0 +1,25 @@
+{
+  "name": "nomopromo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgcox/nomopromo.git"
+  },
+  "keywords": [
+    "nomopromo"
+  ],
+  "author": "Garrett Cox",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mgcox/nomopromo/issues"
+  },
+  "homepage": "https://github.com/mgcox/nomopromo#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
