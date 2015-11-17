@@ -1,17 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-        <title>Beginning</title>
+        <title>NOMOPROMO</title>
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.2/react-dom.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src ="https://cdnjs.cloudflare.com/ajax/libs/react-router/0.13.2/ReactRouter.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/react-router/1.0.0/ReactRouter.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
 
   </head>
   <body>
+  <style>
+    body {
+    /* Location of the image */
+    background-image: url("background.jpg");
+
+    /* Background image is centered vertically and horizontally at all times */
+    background-position: center center;
+
+    /* Background image doesn't tile */
+    background-repeat: no-repeat;
+
+    /* Background image is fixed in the viewport so that it doesn't move when
+     the content's height is greater than the image's height */
+    background-attachment: fixed;
+
+    /* This is what makes the background image rescale based
+     on the container's size */
+    background-size: cover;
+
+    /* Set a background color that will be displayed
+     while the background image is loading */
+    background-color: #48388E;
+    }
+</style>
         <div id="content"></div>
-        <script src="js/app.js" type="text/babel"></script>
+        <script src="js/bundle.js"></script>
   </body>
 </html>
