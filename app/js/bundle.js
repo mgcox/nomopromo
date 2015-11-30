@@ -61,6 +61,7 @@
 	var App = React.createClass({displayName: "App",
 
 	  render: function() {
+	  
 	    return (
 	      React.createElement("div", null,
 			React.createElement("nav", {className: "navbar navbar-default", role: "navigation"},
@@ -72,31 +73,34 @@
 	        			React.createElement("span", {className: "icon-bar"}),
 	        			React.createElement("span", {className: "icon-bar"})
 	      			),
-	      			React.createElement("a", {className: "navbar-brand", href: "/"}, "NoMoPromo")
+	      			React.createElement("a", {className: "navbar-brand", href: "http://localhost:3000/#/signUp?_k=r1j1wp"}, "NoMoPromo")
 	    		),
 
-	    		React.createElement("div", {className: "collapse navbar-collapse"},
+	    		//React.createElement("div", {className: "collapse navbar-collapse"},
 	      			React.createElement("ul", {className: "nav navbar-nav"},
-	        			React.createElement("li", null, React.createElement(Link, {to: "profile"}, "Profile")),
-	        			React.createElement("li", null, React.createElement(Link, {to: "WishListHist"}, "WishList")),
-	        			React.createElement("li", {role: "presentation", className: "dropdown"},
-	          				React.createElement("a", {className: "dropdown-toggle", href: "#", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false"}, "Friends", React.createElement("span", {className: "caret"})),
-	          				React.createElement("ul", {className: "dropdown-menu"},
-	            				React.createElement("li", null, React.createElement(Link, {to: "Friends"}, "View Friends")),
-	            				React.createElement("li", null, React.createElement("a", {href: "#"}, "Add Friend")),
-	            				React.createElement("li", null, React.createElement("a", {href: "#"}, "Remove Friend"))
-	          				)
-	        			)
-	      			),
+	        		//React.createElement("li", null, React.createElement(Link, {to: "profile"}, "About Us")),
+	        		React.createElement("li", null, React.createElement(Link, {to: "friends"}, "Get Started")),
+	        		//	React.createElement("li", {role: "presentation", className: "dropdown"},
+	          			//	React.createElement("a", {className: "dropdown-toggle", href: "#", "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false"}, "Friends", React.createElement("span", {className: "caret"})),
+	          				//React.createElement("ul", {className: "dropdown-menu"},
+	            		//		React.createElement("li", null, React.createElement(Link, {to: "Friends"}, "View Friends")),
+	            			//	React.createElement("li", null, React.createElement("a", {href: "#"}, "Add Friend")),
+	            		//		React.createElement("li", null, React.createElement("a", {href: "#"}, "Remove Friend"))
+	          			//	)
+	        		//	)
+	      		//	),
 	      			React.createElement("ul", {className: "nav navbar-nav navbar-right"},
-	        			React.createElement("li", null, React.createElement("a", {href: "/"}, "Hello Garrett"))
+	      				//React.createElement("li", null, React.createElement(Link, {to: "WishListHist"}, "Get Started"))
+	        			React.createElement("li", null, React.createElement(Link, {to: "profile"}, "About Us"))
 	      			)
+	      			
 	    		)
 	  		  )
 	  		),
 	        React.createElement("div", {className: "container"},
 	          this.props.children
 	        )
+	        
 	      )
 	    );
 	  }
@@ -115,20 +119,23 @@
 	      )
 	);
 
-
+	console.log("Started Server on port 3000");
+	console.log("Started Server on port 3000");
 	ReactDOM.render(routes, document.body);
 
 
 /***/ },
 /* 2 */
 /***/ function(module, exports) {
-
 	/** @jsx React.DOM */var Profile = React.createClass({displayName: "Profile",
+
+
 	  render: function() {
 	    return (
 	      React.createElement("div", null,
-	        React.createElement("h1", null, "Home"),
-	        React.createElement("p", null, "Put your home page here")
+	        React.createElement("h1", null, "About us:"),
+	        React.createElement("ul", null, "We are an elite squad of highly trained penguins bent on saving you time, piece of mind, and money.")
+	       
 	      )
 	    );
 	  }
@@ -141,14 +148,19 @@
 /***/ function(module, exports) {
 
 	/** @jsx React.DOM */var Friends = React.createClass({displayName: "Friends",
+		handleClick: function(event) {
+		console.log(event);
+		console.log(event.target.firstChild.data);
+		 window.location = "http://localhost:3000/#/friends?_k=8jyfde";
+    },
 	  render: function() {
 	    return (
 	      React.createElement("div", null,
-	        React.createElement("h1", null, "Friends"),
-	        React.createElement("ul", null, "List Of Friends",
-	        	React.createElement("li", null, "Friend 1"),
-	        	React.createElement("li", null, "Friend 2"),
-	        	React.createElement("li", null, "Friend 3")
+	        React.createElement("h1", null, "Choose a brand"),
+	        React.createElement("ul", null, "",
+	         React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand1"),
+	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand2"),
+	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand3")
 	        )
 	      )
 	    );
@@ -180,13 +192,18 @@
 	})
 
 	var SignUp = React.createClass({displayName: "SignUp",
+			 handleClick: function() {
+		 window.location = "http://localhost:3000/#/friends?_k=8jyfde";
+       console.log("clicked!");
+    },
 		render: function(){
 			return(
 				React.createElement("div", null,
-					React.createElement(Box, {name: "First Name"}),
-					React.createElement(Box, {name: "Last Name"}),
-					React.createElement(Box, {name: "Email"}),
-					React.createElement(Box, {name: "Birth"})
+					//React.createElement(ReactGridLayout , {className: "layout", layout: {layout}}),
+					//React.createElement(Box, {name: "Last Name"}),
+					//React.createElement(Box, {name: "Email"}),
+					//React.createElement(Box, {name: "Birth"})
+					 React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', name: "Get Started!", onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Get Started!") // style: {background: "purple"}
 				)
 				);
 		}
