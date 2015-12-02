@@ -61,7 +61,7 @@
 	var App = React.createClass({displayName: "App",
 
 	  render: function() {
-	  
+
 	    return (
 	      React.createElement("div", null,
 			React.createElement("nav", {className: "navbar navbar-default", role: "navigation"},
@@ -93,14 +93,14 @@
 	      				//React.createElement("li", null, React.createElement(Link, {to: "WishListHist"}, "Get Started"))
 	        			React.createElement("li", null, React.createElement(Link, {to: "profile"}, "About Us"))
 	      			)
-	      			
+
 	    		)
 	  		  )
 	  		),
 	        React.createElement("div", {className: "container"},
 	          this.props.children
 	        )
-	        
+
 	      )
 	    );
 	  }
@@ -135,7 +135,7 @@
 	      React.createElement("div", null,
 	        React.createElement("h1", null, "About us:"),
 	        React.createElement("ul", null, "We are an elite squad of highly trained penguins bent on saving you time, piece of mind, and money.")
-	       
+
 	      )
 	    );
 	  }
@@ -203,7 +203,7 @@
 					//React.createElement(Box, {name: "Last Name"}),
 					//React.createElement(Box, {name: "Email"}),
 					//React.createElement(Box, {name: "Birth"})
-					 React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', name: "Get Started!", onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Get Started!") // style: {background: "purple"}
+					 React.createElement('button', {className: "btn btn-success btn-lg center-block", type: 'button', name: "Get Started!", onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Get Started!") // style: {background: "purple"}
 				)
 				);
 		}
