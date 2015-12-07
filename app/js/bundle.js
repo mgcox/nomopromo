@@ -57,6 +57,7 @@
 	var Profile = __webpack_require__(2)
 	var Friends = __webpack_require__(3)
 	var SignUp = __webpack_require__(4)
+	var Searched = __webpack_require__(2)
 
 	var App = React.createClass({displayName: "App",
 
@@ -114,7 +115,8 @@
 	        React.createElement(Route, {name: "app", path: "/", component: App},
 	          React.createElement(Route, {name: "SignUp", path: "/signUp", component: SignUp}),
 	          React.createElement(Route, {name: "Friends", path: "/friends", component: Friends}),
-	          React.createElement(Route, {path: "profile", path: "/profile", component: Profile})
+	          React.createElement(Route, {path: "profile", path: "/profile", component: Profile}),
+	          React.createElement(Route, {path: "searched", path: "/searched", component: Searched})
 	        )
 	      )
 	);
@@ -130,16 +132,30 @@
 	/** @jsx React.DOM */var Profile = React.createClass({displayName: "Profile",
 
 
+   /* React.createElement("div", null,
+	        React.createElement("h1", null, "About us:"),
+	        React.createElement("ul", null, "We are an elite squad of highly trained penguins bent on saving you time, piece of mind, and money.")*/
+
+		handleClick: function(event) {
+		console.log(event);
+		console.log(event.target.firstChild.data);
+		 window.location = "http://localhost:3000/#/searched?_k=wbthg1";
+    },
 	  render: function() {
 	    return (
 	      React.createElement("div", null,
-	        React.createElement("h1", null, "About us:"),
-	        React.createElement("ul", null, "We are an elite squad of highly trained penguins bent on saving you time, piece of mind, and money.")
-
+	        React.createElement("h1", null, "Choose a brand"),
+	        React.createElement("ul", null, "",
+	        	//for each email make a new button and name it after the subject of the email.
+	        	React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "email1"),
+	      	 	React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "email2"),
+	     	    React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "email3")
+	        )
 	      )
 	    );
 	  }
 	});
+
 
 	module.exports = Profile
 
@@ -151,7 +167,7 @@
 		handleClick: function(event) {
 		console.log(event);
 		console.log(event.target.firstChild.data);
-		 window.location = "http://localhost:3000/#/friends?_k=8jyfde";
+		 window.location = "http://localhost:3000/#/searched?_k=wbthg1";
     },
 	  render: function() {
 	    return (
@@ -210,6 +226,33 @@
 	});
 
 	module.exports = SignUp
+	
+	
+	/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	/** @jsx React.DOM */var Box = React.createClass({displayName: "Box",
+		handleClick: function(event) {
+		console.log(event);
+		console.log(event.target.firstChild.data);
+		 window.location = "http://localhost:3000/#/friends?_k=8jyfde";
+    },
+	  render: function() {
+	    return (
+	      React.createElement("div", null,
+	        React.createElement("h1", null, "Choose a brand"),
+	        React.createElement("ul", null, "",
+	         React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand1"),
+	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand2"),
+	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand3")
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Searched
 
 /***/ }
 /******/ ]);

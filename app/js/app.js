@@ -4,6 +4,7 @@ var Route = ReactRouter.Route;
 var Profile = require('./Profile')
 var Friends = require('./Friends')
 var SignUp = require('./SignUp')
+var SignUp = require('./Searched')
 
 var App = React.createClass({
 
@@ -58,6 +59,7 @@ var routes = (
           <Route name="SignUp" path="/signUp" component={SignUp}/>
           <Route name="Friends" path="/friends" component={Friends}/>
           <Route path="profile" path="/profile" component={Profile}/>
+          <Route path="searched" path="/searched" component={Searched}/>
         </Route>
       </Router>
 );
