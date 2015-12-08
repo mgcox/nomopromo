@@ -1,68 +1,119 @@
-var Router = ReactRouter.Router;
 var Link = ReactRouter.Link;
-var Route = ReactRouter.Route;
-var Profile = require('./Profile')
-var Friends = require('./Friends')
-var SignUp = require('./SignUp')
-var SignUp = require('./Searched')
+var Router = ReactRouter;
+var History = ReactRouter.History;
+var auth = require ('./auth');
 
 var App = React.createClass({
 
-  render: function() {
-    return (
-      <div>
-		<nav className="navbar navbar-default" role ="navigation">
- 		 <div className="container">
-    		<div className="navbar-header">
-      			<button type="button" className="navbar-toggle" data-toggle="collapse">
-        			<span className="sr-only">Toggle navigation</span>
-        			<span className="icon-bar"></span>
-        			<span className="icon-bar"></span>
-        			<span className="icon-bar"></span>
-      			</button>
-      			<a className="navbar-brand" href="/">No Mo Promo</a>
-    		</div>
+  mixins: [History],
+  // context so the component can access the router
+  //contextTypes: {
+  //    history: React.PropTypes.object.isRequired
+  //},
 
-    		<div className="collapse navbar-collapse">
-      			<ul className="nav navbar-nav">
-        			<li><Link to="profile">Profile</Link></li>
-        			<li><Link to="WishListHist">WishList</Link></li>
-        			<li role="presentation" className="dropdown">
-          				<a className="dropdown-toggle" href ="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Friends<span className="caret"></span></a>
-          				<ul className="dropdown-menu">
-            				<li><Link to="Friends">View Friends</Link></li>
-            				<li><a href="#">Add Friend</a></li>
-            				<li><a href="#">Remove Friend</a></li>
-          				</ul>
-        			</li>
-      			</ul>
-      			<ul className="nav navbar-nav navbar-right">
-        			<li><a href="/">Hello Garrett</a></li>
-      			</ul>
-    		</div>
-  		  </div>
-  		</nav>
-        <div className="container">
-          {this.props.children}
+  getInitialState: function(){
+    return{
+      emailText: '',
+      passwordText: '',
+      error: false
+    }
+  },
+
+  render: function(){
+    return(
+      <div className="container-fluid" id="Home">
+        <div id="mainText">
+          <div id="key_phrase">Make your wishes come true</div>
+          <div id="firstSuppPhrase">Genie Lamp allows you to make wishes</div>
+          <div id="firstSuppPhrase">And have you friends GRANT them</div>
+          <div id="secondSuppPhrase">Join NOW!</div>
         </div>
+        <form id="mainForm" className="form-horizontal">
+        <link rel="stylesheet" type="text/css" href="../bootstrap/css/custom.css"/>
+          <div className="form-group">
+            <label id="emailLabel" htmlFor="inputEmail3" className="col-sm-2 control-label">Email</label>
+            <div className="col-sm-10">
+              <input
+                value={this.state.emailText}
+                onChange={this.handleInputChange}
+                type="email"
+                className="form-control"
+                id="inputEmail3"
+                placeholder="Email"/>
+            </div>
+          </div>
+          <div className="form-group">
+            <label id="passwordLabel" htmlFor="inputPassword3" className="col-sm-2 control-label">Password</label>
+            <div className="col-sm-10">
+              <input
+                value={this.state.passwordText}
+                onChange={this.handleInputChange}
+                type="password"
+                className="form-control"
+                id="inputPassword3"
+                placeholder="Password"/>
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-10">
+                  <button
+                    onClick={this.handleClick}
+                    id="LogInBtn"
+                    className="btn btn-primary btn-lg active" >
+                    Log In
+                  </button>
+                <Link to="/SignUp">
+                  <button id="SignUpBtn" className="btn btn-primary btn-lg active" >Sign Up</button>
+                </Link>
+            </div>
+          </div>
+        </form>
       </div>
-    );
+      );
+  },
+
+  // event handlers
+  handleInputChange: function(event) {
+    if (event.target.id === "inputPassword3"){
+      this.setState({passwordText:event.target.value});
+    }
+    else if (event.target.id === "inputEmail3"){
+      this.setState({emailText:event.target.value});
+    }
+  },
+
+  handleClick: function(){
+    //----- Send value of text input to Mongo------//
+
+    // prevent default browser submit
+    event.preventDefault();
+    // get data from form
+    var username = this.state.emailText;
+    var password = this.state.passwordText;
+    if (!username || !password) {
+        return;
+    }
+
+    // login via API
+    auth.login(username, password, function(loggedIn) {
+        // login callback
+        if (!loggedIn){
+          console.log("failed");
+            return this.setState({
+                error: true
+            });
+          }
+        else {
+          console.log("succeeded");
+          this.history.pushState(null,'/mainAppWin');
+          //this.context.history.pushState(null, '/mainAppWin');
+        }
+    }.bind(this));
   }
 });
 
 
 
-// Run the routes
-var routes = (
-      <Router>
-        <Route name="app" path="/" component={App}>
-          <Route name="SignUp" path="/signUp" component={SignUp}/>
-          <Route name="Friends" path="/friends" component={Friends}/>
-          <Route path="profile" path="/profile" component={Profile}/>
-          <Route path="searched" path="/searched" component={Searched}/>
-        </Route>
-      </Router>
-);
 
 
-ReactDOM.render(routes, document.body);
+module.exports = App;
