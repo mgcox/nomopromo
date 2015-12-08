@@ -270,13 +270,14 @@ body {
   line-height: 1.428571429;
   color: #e2e1c8;
   background-color: #303552;
-  background-size: 100% 100%s;
-  background-position: center center;
+  background-size: 100%;
+  //background-position: 30% 30%;
   vertical-align: center;
   background-repeat:no-repeat;
   display: compact;
-  background-image: url(../../../../background.jpg);
+  background-image: url(../../../../apple-to-zebra-shopping-bags.jpg);
 }
+
 input,
 button,
 select,
