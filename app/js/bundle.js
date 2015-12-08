@@ -58,6 +58,9 @@
 	var Friends = __webpack_require__(3)
 	var SignUp = __webpack_require__(4)
 	var Searched = __webpack_require__(2)
+	// What is __webpack_require__ and how do i change it so that i can have more
+	// pages to work with.  I need one to display the html file... okay... I just want to know how to do it...
+	// How do i open an html file from this code if it is passed to me as a string (or if it's passed as a file name)?
 
 	var App = React.createClass({displayName: "App",
 
@@ -124,15 +127,25 @@
 	        React.createElement("h1", null, "About us:"),
 	        React.createElement("ul", null, "We are an elite squad of highly trained penguins bent on saving you time, piece of mind, and money.")*/
 
+		getInitialState: function() {
+			console.log("called getInitialState");
+			//put a call to the server to get any relevant data, set this in the return of this function
+			//use that to display the email subjects.
+	    	return {value: 'Hello!'};
+	  	},
+
 		handleClick: function(event) {
+		//on click we should query the server to get the html and display it.
+		console.log("function");
 		console.log(event);
 		console.log(event.target.firstChild.data);
 		 window.location = "http://localhost:3000/#/searched?_k=wbthg1";
     },
 	  render: function() {
 	    return (
+	    console.log("called render"),
 	      React.createElement("div", null,
-	        React.createElement("h1", null, "Choose a brand"),
+	        React.createElement("h1", null, "Choose an email"),
 	        React.createElement("ul", null, "",
 	        	//for each email make a new button and name it after the subject of the email.
 	        	React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "email1"),
@@ -155,8 +168,21 @@
 		handleClick: function(event) {
 		console.log(event);
 		console.log(event.target.firstChild.data);
-		 window.location = "http://localhost:3000/#/searched?_k=wbthg1";
+		if(event.target.firstChild.data == "brand1")
+		{
+			window.location = "http://localhost:3000/#/searched?_k=wbthg1";
+		}
+		else if(event.target.firstChild.data == "brand2")
+		{
+			window.location = "http://localhost:3000/#/searched?_k=wbthg1";
+		}
+		else if(event.target.firstChild.data == "brand3")
+		{
+			window.location = "http://localhost:3000/#/searched?_k=wbthg1";
+		}
+		 
     },
+    
 	  render: function() {
 	    return (
 	      React.createElement("div", null,
