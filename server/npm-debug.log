@@ -1,0 +1,110 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'bcrypt',
+1 verbose cli   '--save' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.2
+4 verbose install initial load of /home/mgcox/Desktop/webApp/server/package.json
+5 warn package.json server@1.0.0 No repository field.
+6 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/asn1.js/package.json
+7 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/base64-url/package.json
+8 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/base64url/package.json
+9 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/bindings/package.json
+10 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/bn.js/package.json
+11 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/body-parser/package.json
+12 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/buffer-equal-constant-time/package.json
+13 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/bytes/package.json
+14 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/camelcase/package.json
+15 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/camelcase-keys/package.json
+16 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/concat-stream/package.json
+17 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/content-type/package.json
+18 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/core-util-is/package.json
+19 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/depd/package.json
+20 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/ecdsa-sig-formatter/package.json
+21 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/ee-first/package.json
+22 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/express/package.json
+23 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/express-session/package.json
+24 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/get-stdin/package.json
+25 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/iconv-lite/package.json
+26 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/indent-string/package.json
+27 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/inherits/package.json
+28 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/is-finite/package.json
+29 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/isarray/package.json
+30 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/jsonwebtoken/package.json
+31 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/jwa/package.json
+32 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/jws/package.json
+33 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/map-obj/package.json
+34 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/media-typer/package.json
+35 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/meow/package.json
+36 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/mime-db/package.json
+37 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/mime-types/package.json
+38 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/minimalistic-assert/package.json
+39 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/minimist/package.json
+40 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/mongodb/package.json
+41 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/mongoose/package.json
+42 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/mongoose-findorcreate/package.json
+43 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/ms/package.json
+44 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/nan/package.json
+45 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/number-is-nan/package.json
+46 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/object-assign/package.json
+47 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/passport/package.json
+48 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/raw-body/package.json
+49 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/readable-stream/package.json
+50 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/repeating/package.json
+51 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/string_decoder/package.json
+52 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/type-is/package.json
+53 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/typedarray/package.json
+54 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/underscore/package.json
+55 verbose installManyTop reading scoped package data from /home/mgcox/Desktop/webApp/server/node_modules/unpipe/package.json
+56 info package.json ms@0.7.1 No license field.
+57 info package.json string_decoder@0.10.31 string_decoder is also the name of a node core module.
+58 verbose readDependencies loading dependencies from /home/mgcox/Desktop/webApp/server/package.json
+59 silly cache add args [ 'bcrypt@^0.8.5', null ]
+60 verbose cache add spec bcrypt@^0.8.5
+61 silly cache add parsed spec Result {
+61 silly cache add   raw: 'bcrypt@^0.8.5',
+61 silly cache add   scope: null,
+61 silly cache add   name: 'bcrypt',
+61 silly cache add   rawSpec: '^0.8.5',
+61 silly cache add   spec: '>=0.8.5 <0.9.0',
+61 silly cache add   type: 'range' }
+62 silly addNamed bcrypt@>=0.8.5 <0.9.0
+63 verbose addNamed ">=0.8.5 <0.9.0" is a valid semver range for bcrypt
+64 silly addNameRange { name: 'bcrypt', range: '>=0.8.5 <0.9.0', hasData: false }
+65 silly mapToRegistry name bcrypt
+66 silly mapToRegistry using default registry
+67 silly mapToRegistry registry https://registry.npmjs.org/
+68 silly mapToRegistry uri https://registry.npmjs.org/bcrypt
+69 verbose addNameRange registry:https://registry.npmjs.org/bcrypt not in flight; fetching
+70 verbose request uri https://registry.npmjs.org/bcrypt
+71 verbose request no auth needed
+72 info attempt registry request try #1 at 13:30:07
+73 verbose request id 09037b8b3ba772c1
+74 http request GET https://registry.npmjs.org/bcrypt
+75 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+76 info attempt registry request try #2 at 13:30:37
+77 http request GET https://registry.npmjs.org/bcrypt
+78 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+79 info attempt registry request try #3 at 13:31:57
+80 http request GET https://registry.npmjs.org/bcrypt
+81 verbose stack Error: getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+81 verbose stack     at errnoException (dns.js:26:10)
+81 verbose stack     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
+82 verbose cwd /home/mgcox/Desktop/webApp/server
+83 error Linux 3.19.0-25-generic
+84 error argv "/usr/bin/nodejs" "/usr/bin/npm" "install" "bcrypt" "--save"
+85 error node v4.2.2
+86 error npm  v2.14.7
+87 error code ENOTFOUND
+88 error errno ENOTFOUND
+89 error syscall getaddrinfo
+90 error network getaddrinfo ENOTFOUND registry.npmjs.org registry.npmjs.org:443
+90 error network This is most likely not a problem with npm itself
+90 error network and is related to network connectivity.
+90 error network In most cases you are behind a proxy or have bad network settings.
+90 error network
+90 error network If you are behind a proxy, please make sure that the
+90 error network 'proxy' config is set properly.  See: 'npm help config'
+91 verbose exit [ 1, true ]
