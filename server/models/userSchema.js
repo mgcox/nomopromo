@@ -1,35 +1,31 @@
 var mongoose = require('mongoose'),
 	Schema = mongoose.Schema,
 	findOrCreate = require("mongoose-findorcreate"),
-	bcrypt = require("bcrypt"),
+	//bcrypt = require("bcrypt"),
 	jwt = require("jsonwebtoken");
 
 
-var salt = bcrypt.genSaltSync(),
-	secert = "cs360";
+//var salt = bcrypt.genSaltSync(),
+	var secert = "cs360";
 
 
 
 var personSchema = new Schema({
-	username : {type:String, unique: true},
+	username : {type:String, unique: true}, //email
 	passwordHash: String,
 	lastName : String,
-	firstName : String,
-	bdMonth: String,
-	bdDay: String,
-	bdYear: String,
-	email: String,
+	firstName : String
 });
 
 //{type:String, unique: true, sparse: true}
 personSchema.methods.set_password = function(password){
-
-	this.passwordHash = bcrypt.hashSync(password,salt);
+	this.passwordHash = password;
+	//this.passwordHash = bcrypt.hashSync(password,salt);
 };
 
 personSchema.methods.checkPassword = function(password){
-
-	return bcrypt.compareSync(password, this.passwordHash);
+	return this.passwordHash;
+	//return bcrypt.compareSync(password, this.passwordHash);
 };
 
 

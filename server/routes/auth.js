@@ -13,16 +13,12 @@ router.post ('/register', function(req,res){
 	console.log(req.body.username);
 	console.log(req.body.password);
 
-	user.findOrCreate({username: req.body.username}, function(err, user, created) {
+	user.findOrCreate({email: req.body.username}, function(err, user, created) {
     if (created) {
 				console.log('create new user');
 					user.set_password(req.body.password);
 					user.firstName = req.body.firstName;
 					user.lastName = req.body.lastName;
-					user.bdMonth = req.body.bdMonth;
-					user.bdDay = req.body.bdDay;
-					user.bdYear = req.body.bdYear;
-					user.gender = req.body.gender;
 					user.save(function(err) {
 					if (err) {
 					console.log('DB Save error');

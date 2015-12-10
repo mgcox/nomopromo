@@ -58,6 +58,9 @@
 	var Friends = __webpack_require__(3)
 	var SignUp = __webpack_require__(4)
 	var Searched = __webpack_require__(2)
+	// What is __webpack_require__ and how do i change it so that i can have more
+	// pages to work with.  I need one to deal with returning users.
+	// How do i open an html file from this code if it is passed to me as a string (or if it's passed as a file name)?
 	var App = React.createClass({displayName: "App",
 
 	  render: function() {
@@ -79,7 +82,7 @@
 	      			React.createElement("ul", {className: "nav navbar-nav"},
 	        		React.createElement("li", null, React.createElement(Link, {to: "friends"}, "Get Started")),
 	      			React.createElement("ul", {className: "nav navbar-nav navbar-right"},
-	        			React.createElement("li", null, React.createElement(Link, {to: "profile"}, "About Us"))
+	        			React.createElement("li", null, React.createElement(Link, {to: ""}, "Login")) // add new link here
 	      			)
 
 	    		)
@@ -99,8 +102,9 @@
 	// Run the routes
 	var routes = (
 	      React.createElement(Router, null,
-	        React.createElement(Route, {name: "app", path: "/", component: App},
+	        React.createElement(Route, {name: "app", path: "/search", component: App},
 	          React.createElement(Route, {name: "SignUp", path: "/signUp", component: SignUp}),
+	          React.createElement(Route, {name: "SignUp2", path: "/", component: SignUp}),
 	          React.createElement(Route, {name: "Friends", path: "/friends", component: Friends}),
 	          React.createElement(Route, {path: "profile", path: "/profile", component: Profile}),
 	          React.createElement(Route, {path: "searched", path: "/searched", component: Searched})
@@ -125,9 +129,16 @@
 
 		getInitialState: function() {
 			console.log("called getInitialState");
-			//put a call to the server to get any relevant data, set this in the return of this function
+			//put a call to the server to get the 3 most recent emails and corresponding htmls, set this in the return of this function
 			//use that to display the email subjects.
-	    	return {value: 'Hello!'};
+	    	return{
+		    	email1Subject: '$20 Off Holiday Cards + Free Shipping Offer',
+		    	email2Subject: 'All-New DOORBUSTERS + 20% off Your Total Purchase!',
+		      	email3Subject: 'NEW Classes...In-Store & Online',
+		      	email1Html: '',
+		    	email2Html: '',
+		      	email3Html: ''
+		    }
 	  	},
 
 		handleClick: function(event) {
@@ -135,7 +146,18 @@
 		console.log("function");
 		console.log(event);
 		console.log(event.target.firstChild.data);
-		 window.location = "http://localhost:3000/#/searched?_k=wbthg1";
+		if(this.state.email1Subject == event.target.firstChild.data)
+		{
+			//open the email1Html in browser
+		}
+		else if(this.state.email2Subject == event.target.firstChild.data)
+		{
+			//open the email2Html in browser
+		}
+		else if(this.state.email3Subject == event.target.firstChild.data)
+		{
+			//open the email3Html in browser
+		}
     },
 	  render: function() {
 	    return (
@@ -144,9 +166,9 @@
 	        React.createElement("h1", null, "Choose an email"),
 	        React.createElement("ul", null, "",
 	        	//for each email make a new button and name it after the subject of the email.
-	        	React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "email1"),
-	      	 	React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "email2"),
-	     	    React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "email3")
+	        	React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, this.state.email1Subject),
+	      	 	React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, this.state.email2Subject),
+	     	    React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, this.state.email3Subject)
 	        )
 	      )
 	    );
@@ -161,22 +183,23 @@
 /***/ function(module, exports) {
 
 	/** @jsx React.DOM */var Friends = React.createClass({displayName: "Friends",
+	
 		handleClick: function(event) {
 		console.log(event);
 		console.log(event.target.firstChild.data);
-		if(event.target.firstChild.data == "brand1")
+		if("Jo-Ann Stores" == event.target.firstChild.data)
 		{
-			window.location = "http://localhost:3000/#/searched?_k=wbthg1";
+			//set state in database = to Jo-Ann Stores
 		}
-		else if(event.target.firstChild.data == "brand2")
+		else if("Too Faced Cosmetics" == event.target.firstChild.data)
 		{
-			window.location = "http://localhost:3000/#/searched?_k=wbthg1";
+			//set state in database = to Too Faced Cosmetics
 		}
-		else if(event.target.firstChild.data == "brand3")
+		else if("Bath & Body Works" == event.target.firstChild.data)
 		{
-			window.location = "http://localhost:3000/#/searched?_k=wbthg1";
+			//set state in database = to Bath & Body Works
 		}
-
+		window.location = "http://localhost:3000/#/profile?_k=mnjykk";
     },
 
 	  render: function() {
@@ -184,9 +207,9 @@
 	      React.createElement("div", null,
 	        React.createElement("h1", null, "Choose a brand"),
 	        React.createElement("ul", null, "",
-	         React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand1"),
-	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand2"),
-	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand3")
+	         React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Jo-Ann Stores"),
+	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Too Faced Cosmetics"),
+	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Bath & Body Works")
 	        )
 	      )
 	    );
@@ -249,10 +272,18 @@
 		    console.log("lastName %s" , lastName);
 		    console.log("match %s" , match);
 
-		    if (!username || !password || !firstName || !lastName || !match) {
+		    if (!username || !password || !firstName || !lastName) 
+		    {
+		    	//document.write("<body bgcolor=white> <p>Login successful</p> </body>");
 		        $("#errorDiv").html("<font size=15px color=red>Please Fill out all items!</font>");
 		        return;
 		    }
+		    if(this.state.passwordField != this.state.passwordFieldCheck)
+		    {
+		       $("#errorDiv").html("<font size=15px color=red>Your passwords don't match!</font>");
+		        return;
+		    }
+		    //save the user data
 
 		    // login via API
 		  //  auth.register(firstName, lastName, username, password, function(loggedIn) {
@@ -437,11 +468,8 @@
 	                  id: "SignUp",
 	                  className: "btn btn-primary btn-lg active"}, "Get Started!")
 	                )
-					),
-					React.createElement("input", {type: "hidden", autoComplete: "off", id: "referrer", name: "referrer", value: ""}), React.createElement("input", {type: "hidden", autoComplete: "off", id: "asked_to_login", name: "asked_to_login"}), React.createElement("input", {type: "hidden", autoComplete: "off", id: "terms", name: "terms", value: "on"}), React.createElement("input", {type: "hidden", autoComplete: "off", id: "ab_test_data", name: "ab_test_data", value: ""}), React.createElement("input", {type: "hidden", autoComplete: "off", id: "reg_instance", name: "reg_instance", value: "f5ZTVicvklCwNUJcUZfUDS8L"}), React.createElement("input", {type: "hidden", autoComplete: "off", id: "contactpoint_label", name: "contactpoint_label", value: "email_or_phone"}), React.createElement("input", {type: "hidden", autoComplete: "off", id: "locale", name: "locale", value: "en_US"}),
-					React.createElement("div", {id: "reg_captcha", className: "_58mw hidden_elem"}
 					)
-				)
+					)
 				)
 				);
 		}
@@ -458,16 +486,28 @@
 		handleClick: function(event) {
 		console.log(event);
 		console.log(event.target.firstChild.data);
-		 window.location = "http://localhost:3000/#/friends?_k=8jyfde";
+		if("Jo-Ann Stores" == event.target.firstChild.data)
+		{
+		
+		}
+		else if("Too Faced Cosmetics" == event.target.firstChild.data)
+		{
+		
+		}
+		else if("Bath & Body Works" == event.target.firstChild.data)
+		{
+		
+		}
+		 window.location = "http://localhost:3000/#/profile?_k=mnjykk";
     },
 	  render: function() {
 	    return (
 	      React.createElement("div", null,
 	        React.createElement("h1", null, "Choose a brand"),
 	        React.createElement("ul", null, "",
-	         React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand1"),
-	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand2"),
-	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "brand3")
+	         React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Jo-Ann Stores"),
+	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Too Faced Cosmetics"),
+	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Bath & Body Works")
 	        )
 	      )
 	    );
