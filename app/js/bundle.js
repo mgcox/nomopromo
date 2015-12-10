@@ -57,7 +57,7 @@
 	var Profile = __webpack_require__(2)
 	var Friends = __webpack_require__(3)
 	var SignUp = __webpack_require__(4)
-	var Searched = __webpack_require__(2)
+	var Searched = __webpack_require__(5)
 	// What is __webpack_require__ and how do i change it so that i can have more
 	// pages to work with.  I need one to deal with returning users.
 	// How do i open an html file from this code if it is passed to me as a string (or if it's passed as a file name)?
@@ -82,7 +82,7 @@
 	      			React.createElement("ul", {className: "nav navbar-nav"},
 	        		React.createElement("li", null, React.createElement(Link, {to: "friends"}, "Get Started")),
 	      			React.createElement("ul", {className: "nav navbar-nav navbar-right"},
-	        			React.createElement("li", null, React.createElement(Link, {to: ""}, "Login")) // add new link here
+	        			React.createElement("li", null, React.createElement(Link, {to: "searched"}, "Login")) // add new link here
 	      			)
 
 	    		)
@@ -135,7 +135,7 @@
 		    	email1Subject: '$20 Off Holiday Cards + Free Shipping Offer',
 		    	email2Subject: 'All-New DOORBUSTERS + 20% off Your Total Purchase!',
 		      	email3Subject: 'NEW Classes...In-Store & Online',
-		      	email1Html: '',
+		      	email1Html: '<p>copy copy copy <strong>strong copy</strong></p>',
 		    	email2Html: '',
 		      	email3Html: ''
 		    }
@@ -149,10 +149,12 @@
 		if(this.state.email1Subject == event.target.firstChild.data)
 		{
 			//open the email1Html in browser
+
 		}
 		else if(this.state.email2Subject == event.target.firstChild.data)
 		{
 			//open the email2Html in browser
+		//	<body bgcolor=white> <p>Login successful</p> </body>
 		}
 		else if(this.state.email3Subject == event.target.firstChild.data)
 		{
@@ -160,7 +162,9 @@
 		}
     },
 	  render: function() {
-	    return (
+			console.log("about to render");
+			return (
+
 	    console.log("called render"),
 	      React.createElement("div", null,
 	        React.createElement("h1", null, "Choose an email"),
@@ -478,11 +482,11 @@
 	module.exports = SignUp
 
 
-	/***/ },
+/***/ },
 /* 5 */
 /***/ function(module, exports) {
 
-	/** @jsx React.DOM */var Box = React.createClass({displayName: "Searched",
+	/** @jsx React.DOM */var Searched = React.createClass({displayName: "Searched",
 		getInitialState: function(){
 		    return{
 		      	email: '',
