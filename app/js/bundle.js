@@ -76,7 +76,7 @@
 	        			React.createElement("span", {className: "icon-bar"}),
 	        			React.createElement("span", {className: "icon-bar"})
 	      			),
-	      			React.createElement("a", {className: "navbar-brand", href: "http://localhost:3000/#/signUp?_k=r1j1wp"}, "NoMoPromo")
+	      			React.createElement("a", {className: "navbar-brand", href: ":3000/#/signUp?_k=r1j1wp"}, "NoMoPromo")
 	    		),
 
 	      			React.createElement("ul", {className: "nav navbar-nav"},
@@ -183,7 +183,7 @@
 /***/ function(module, exports) {
 
 	/** @jsx React.DOM */var Friends = React.createClass({displayName: "Friends",
-	
+
 		handleClick: function(event) {
 		console.log(event);
 		console.log(event.target.firstChild.data);
@@ -272,7 +272,7 @@
 		    console.log("lastName %s" , lastName);
 		    console.log("match %s" , match);
 
-		    if (!username || !password || !firstName || !lastName) 
+		    if (!username || !password || !firstName || !lastName)
 		    {
 		    	//document.write("<body bgcolor=white> <p>Login successful</p> </body>");
 		        $("#errorDiv").html("<font size=15px color=red>Please Fill out all items!</font>");
@@ -547,7 +547,7 @@
 					React.createElement("input", {type: "hidden", name: "lsd", value: "AVrbhDJG", autoComplete: "off"}),
 					React.createElement("div", {id: "reg_form_box", className: "large_form"},
 						React.createElement("div", {className: "clearfix _58mh"},
-							
+
 						React.createElement("div", {className: "mbm"},
 							React.createElement("div", {className: "_5dbb", id: "u_0_e"},
 								React.createElement("div", {className: "uiStickyPlaceholderInput uiStickyPlaceholderEmptyInput"},
