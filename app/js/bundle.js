@@ -76,7 +76,7 @@
 	        			React.createElement("span", {className: "icon-bar"}),
 	        			React.createElement("span", {className: "icon-bar"})
 	      			),
-	      			React.createElement("a", {className: "navbar-brand", href: ":3000/#/signUp?_k=r1j1wp"}, "NoMoPromo")
+	      			React.createElement("a", {className: "navbar-brand", href: "/#/signUp?_k=r1j1wp"}, "NoMoPromo")
 	    		),
 
 	      			React.createElement("ul", {className: "nav navbar-nav"},
@@ -199,7 +199,7 @@
 		{
 			//set state in database = to Bath & Body Works
 		}
-		window.location = "http://localhost:3000/#/profile?_k=mnjykk";
+		window.location = "/#/profile?_k=mnjykk";
     },
 
 	  render: function() {
@@ -294,7 +294,7 @@
 		    //      }
 		    //    else {
 		        	console.log("worked");
-		        	window.location = "http://localhost:3000/#/friends?_k=8jyfde";
+		        	window.location = "/#/friends?_k=8jyfde";
 		    //      this.context.history.pushState(null, '/mainAppWin');
 		   //     }
 		 //   }.bind(this));
