@@ -482,36 +482,123 @@
 /* 5 */
 /***/ function(module, exports) {
 
-	/** @jsx React.DOM */var Box = React.createClass({displayName: "Box",
-		handleClick: function(event) {
-		console.log(event);
-		console.log(event.target.firstChild.data);
-		if("Jo-Ann Stores" == event.target.firstChild.data)
+	/** @jsx React.DOM */var Box = React.createClass({displayName: "Searched",
+		getInitialState: function(){
+		    return{
+		      	email: '',
+		      	passwordField: ''
+		    }
+		    },
+
+		     handleSubmit: function(event) {
+		     //----- Send value of text input to Mongo------//
+
+	    	// prevent default browser submit
+	    		event.preventDefault();
+	    	// get data from form
+		    var username = this.state.email;
+		    var password = this.state.passwordField;
+
+		    console.log("username %s" , username);
+		    console.log("password %s" , password);
+
+		    if (!username || !password)
+		    {
+		    	//document.write("<body bgcolor=white> <p>Login successful</p> </body>");
+		        $("#errorDiv").html("<font size=15px color=red>Please Fill out all items!</font>");
+		        return;
+		    }
+		    //check to see if the user is valid.  if not valid then print Invalid username or password
+
+		    // login via API
+		  //  auth.register(firstName, lastName, username, password, function(loggedIn) {
+		        // login callback
+		    //    if (!loggedIn){
+		    //      	console.log("failed");
+		     //       $("#errorDiv").html("<font size=15px color=red>User already exists!</font>");
+		    //      }
+		    //    else {
+		        	console.log("worked");
+		     //   	window.location = "http://localhost:3000/#/friends?_k=8jyfde";
+		    //      this.context.history.pushState(null, '/mainAppWin');
+		   //     }
+		 //   }.bind(this));
+		     },
+
+
+			 handleClick: function(event) {
+
+		if("email" == event.target.id)
 		{
-		
+			this.setState({email: event.target.value});
 		}
-		else if("Too Faced Cosmetics" == event.target.firstChild.data)
+		else if("passwordField" == event.target.id)
 		{
-		
+			this.setState({passwordField: event.target.value});
 		}
-		else if("Bath & Body Works" == event.target.firstChild.data)
-		{
-		
-		}
-		 window.location = "http://localhost:3000/#/profile?_k=mnjykk";
+		 console.log(event.target.id);
+       console.log("clicked!");
     },
-	  render: function() {
-	    return (
-	      React.createElement("div", null,
-	        React.createElement("h1", null, "Choose a brand"),
-	        React.createElement("ul", null, "",
-	         React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Jo-Ann Stores"),
-	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Too Faced Cosmetics"),
-	        React.createElement('button', {className: "btn btn-success btn-lg", type: 'button', onClick: this.handleClick, style: {color: "#e2e1c8"}}, "Bath & Body Works")
-	        )
-	      )
-	    );
-	  }
+		render: function(){
+			return(
+				React.createElement("div", null,
+				React.createElement("div", null, React.createElement("span", {id: "errorDiv", className: "errorDiv"})),
+				React.createElement("form", {id: "reg", name: "reg"},
+					React.createElement("input", {type: "hidden", name: "lsd", value: "AVrbhDJG", autoComplete: "off"}),
+					React.createElement("div", {id: "reg_form_box", className: "large_form"},
+						React.createElement("div", {className: "clearfix _58mh"},
+							
+						React.createElement("div", {className: "mbm"},
+							React.createElement("div", {className: "_5dbb", id: "u_0_e"},
+								React.createElement("div", {className: "uiStickyPlaceholderInput uiStickyPlaceholderEmptyInput"},
+									React.createElement("div", {className: "placeholder", "aria-hidden": "true"}, "Email"),
+									React.createElement("input", {
+									required: true,
+									value: this.state.emailText,
+									onChange: this.handleClick,
+									type: "email",
+									className: "inputtext _58mg _5dba _2ph-",
+									"data-type": "text",
+									name: "reg_email__",
+									"aria-required": "1",
+									placeholder: "",
+									id: "email",
+									"aria-label": "Email"})
+								),
+								React.createElement("i", {className: "_5dbc img sp_7XMX65Pq0E7 sx_ee768b"}), React.createElement("i", {className: "_5dbd img sp_7XMX65Pq0E7 sx_067138"})
+							)
+						),
+						React.createElement("div", {className: "mbm"},
+							React.createElement("div", {className: "_5dbb", id: "u_0_j"},
+								React.createElement("div", {className: "uiStickyPlaceholderInput uiStickyPlaceholderEmptyInput"},
+									React.createElement("div", {className: "placeholder", "aria-hidden": "true"}, "Password"),
+									React.createElement("input", {
+									required: true,
+									value: this.state.passwordText,
+									onChange: this.handleClick,
+									type: "password",
+									className: "inputtext _58mg _5dba _2ph-",
+									"data-type": "text",
+									name: "reg_passwd__",
+									"aria-required": "1",
+									placeholder: "",
+									id: "passwordField",
+									"aria-label": "Password"})
+								),
+								React.createElement("i", {className: "_5dbc img sp_7XMX65Pq0E7 sx_ee768b"}), React.createElement("i", {className: "_5dbd img sp_7XMX65Pq0E7 sx_067138"})
+							)
+						),
+						React.createElement("div", null,
+	                  React.createElement("button", {
+	                  onClick: this.handleClick,
+	                  id: "Login",
+	                  className: "btn btn-primary btn-lg active"}, "Login")
+	                )
+					)
+					)
+				))
+				);
+		}
 	});
 
 	module.exports = Searched
